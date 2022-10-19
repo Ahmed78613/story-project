@@ -15,49 +15,30 @@ Base the design aesthetic on a platform such as [Telegraph](https://telegra.ph/)
 - The user should be able to access their post using that show path even after a server restart
 - Edit and delete functionality is not required
 
-
----
-
-
 ## Installation & Usage
 
 ### Installation
 
 * Clone or download the repo.
-* Open terminal and navigate to `fizzbuzz` folder.
+* Open terminal and navigate to `server` folder.
 * Run `npm install` to install dependencies.
 
 ### Usage
 
 * Run `npm start` to launch server.
 * Run `npm test` to launch test suite.
-
-## Changelog
-
-### index.html
-
-[x] Fixed filepath to correctly connect CSS to HTML file.
-
-### server.js
-
-[x] Updated `fizzbuzz` function to accept an argument.
-
-## Bugs
-
-[] Function logs 15 as `fizz` when it should log `fizzbuzz`
+* View changes on local port `http://127.0.0.1:5500/client/index.html`
 
 ## Wins & Challenges
 
 ### Wins
 
-* Managed to implement a loop.
-* Learned how to use modulus operator.
+* -
+* -
 
 ### Challenges
 
-* Realised using return would not log all numbers up to the argument number.
-
----
+* -
 
 ### Links
 
