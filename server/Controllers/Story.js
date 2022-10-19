@@ -1,8 +1,9 @@
 const storyModel = require("../Schema/Story");
 
 const getStories = async (req, res) => {
+	const { name } = req.user;
 	try {
-		const stories = await storyModel.find({});
+		const stories = await storyModel.find({ username: name });
 		res.status(200).json({ result: stories });
 	} catch (error) {
 		res.status(404).json({ msg: error.message });

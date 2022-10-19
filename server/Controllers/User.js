@@ -1,5 +1,6 @@
 const userModel = require("../Schema/User");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const getUsers = async (req, res) => {
 	try {
@@ -27,15 +28,19 @@ const addNewUser = async (req, res) => {
 };
 
 const userLogin = async (req, res) => {
+	const { username, password } = req.body;
 	// Look for user
-	const user = await userModel.find({ username: req.body.username });
+	const user = await userModel.find({ username });
 	if (!user.length) {
 		return res.status(400).send("Cannot find user");
 	}
 	try {
 		// Check Password
-		if (await bcrypt.compare(req.body.password, user[0].password)) {
-			res.status(200).send("Success! Your now logged in.");
+		if (await bcrypt.compare(password, user[0].password)) {
+			// JWT
+			const user = { name: username };
+			const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+			res.status(200).json({ accessToken: accessToken });
 		} else {
 			res.status(401).send("Not Allowed! Password does not match.");
 		}

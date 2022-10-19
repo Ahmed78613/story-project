@@ -2,9 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const connectDB = require("./db/connect");
-
 const User = require("./Routes/User");
 const Story = require("./Routes/Story");
+const authenticateToken = require("./Middleware/authenticateToken");
 require("dotenv").config();
 
 // Middleware
@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 
 // Routes
 app.use("/users", User);
-app.use("/story", Story);
+app.use("/story", authenticateToken, Story);
 
 // Listen & Connect to MongoDB
 const PORT = process.env.PORT || 5000;
