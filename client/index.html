@@ -12,7 +12,7 @@
 		/>
 		<link rel="stylesheet" href="./style.css" />
 		<script defer src="./index.js"></script>
-		<title>Your Story</title>
+		<title>Your Stories</title>
 	</head>
 	<body>
 		<!-- Login Form -->
@@ -73,5 +73,20 @@
 			<hr />
 			<input type="button" value="Login" class="outer-btn" id="login-btn" />
 		</div>
+
+		<div class="tale-container">
+			<form id="tale-form">
+				<label for="taleTitle">Tale Title</label>
+				<input type="text" id="taleTitle" />
+				<label for="anonyMouse">Your AnonyMouse Name</label>
+				<input type="text" id="anonyMouse" />
+				<label for="tailTale">Your Tale</label>
+				<input type="text" id="tailTale" />
+				<div class="publish-button">
+					<input type="button" value="Publish" class="form-btn" />
+				</div>
+			</form>
+		</div>
+		
 	</body>
 </html>
