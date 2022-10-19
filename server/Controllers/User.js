@@ -26,4 +26,23 @@ const addNewUser = async (req, res) => {
 	}
 };
 
-module.exports = { getUsers, addNewUser };
+const userLogin = async (req, res) => {
+	// Look for user
+	const user = await userModel.find({ username: req.body.username });
+	if (!user.length) {
+		return res.status(400).send("Cannot find user");
+	}
+	try {
+		// Check Password
+		console.log(await bcrypt.compare(req.body.password, user[0].password));
+		if (await bcrypt.compare(req.body.password, user[0].password)) {
+			res.send("Success! Your now logged in.");
+		} else {
+			res.send("Not Allowed! Password does not match.");
+		}
+	} catch (error) {
+		res.status(404).json({ msg: error.message });
+	}
+};
+
+module.exports = { getUsers, addNewUser, userLogin };
