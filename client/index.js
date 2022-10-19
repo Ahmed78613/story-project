@@ -7,6 +7,8 @@ const registerBtn = document.getElementById("register-btn");
 // Containers
 const loginContainer = document.getElementById("login-container");
 const registerContainer = document.getElementById("register-container");
+const taleContainer = document.querySelector(".tale-container");
+const allTalesContainer = document.getElementById("all-tales-container");
 // Event Listeners
 loginBtn.addEventListener("click", switchForms);
 registerBtn.addEventListener("click", switchToRegister);
@@ -25,20 +27,78 @@ function switchForms() {
 }
 
 // Login Form submit
-function handleLogin(e) {
+async function handleLogin(e) {
 	e.preventDefault();
-	const username = e.target.username.value;
-	const password = e.target.password.value;
+	// Get Login details & remove whitespace
+	const username = e.target.username.value.trim();
+	const password = e.target.password.value.trim();
+	// Send Login POST Request
+	try {
+		const res = await fetch("http://localhost:5000/users/login", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ username, password }),
+		});
+		/// Check Response Status
+		if (res.status === 400) {
+			return alert("Sorry but this Username does not exist.");
+		} else if (res.status === 401) {
+			return alert("Incorrect password, please try again.");
+		} else {
+			userLoggedIn();
+		}
+	} catch (error) {
+		console.log(error);
+	}
 }
 
-// Register Form submit
-function handleRegister(e) {
+// Register Form Submit
+async function handleRegister(e) {
 	e.preventDefault();
-	const username = e.target.registerUsername.value;
-	const password = e.target.registerPassword.value;
-	const confirmPassword = e.target.confirmPassword.value;
-	// Check if password math
-	password === confirmPassword
-		? console.log("yes")
-		: alert("Passwords don't match. Please try again.");
+	const username = e.target.registerUsername.value.trim();
+	const password = e.target.registerPassword.value.trim();
+	const confirmPassword = e.target.confirmPassword.value.trim();
+	// Check Username & Password
+	if (!username || username.length < 5) {
+		return alert("Username must be at least 5 characters.");
+	} else if (password !== confirmPassword) {
+		return alert("Passwords don't match. Please try again.");
+	} else if (password.length < 8) {
+		return alert("Passwords must be at least 8 characters.");
+	}
+	try {
+		const res = await fetch("http://localhost:5000/users", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ username, password }),
+		});
+		if (res.status === 404) {
+			return alert("Username already taken.");
+		} else if (res.status === 201) {
+			alert("Successfully registered, please login.");
+			registerContainer.style.display = "none";
+			loginContainer.style.display = "flex";
+		}
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+function userLoggedIn() {
+	// Remove Containers with Transition
+	loginContainer.style.transition = "1s ease-in-out";
+	loginContainer.style.opacity = 0;
+	setTimeout(() => {
+		loginContainer.style.display = "none";
+		// Show Stories Container
+		taleContainer.style.transition = "1s ease-in-out";
+		taleContainer.style.display = "flex";
+		allTalesContainer.style.display = "flex";
+	}, 1000);
 }

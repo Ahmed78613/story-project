@@ -11,6 +11,10 @@
 			href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap"
 			rel="stylesheet"
 		/>
+		<script
+			src="https://kit.fontawesome.com/b7207ee847.js"
+			crossorigin="anonymous"
+		></script>
 		<link rel="stylesheet" href="./style.css" />
 		<script defer src="./index.js"></script>
 		<title>Mouse Tails</title>
@@ -21,19 +25,25 @@
 			<h1>Login</h1>
 			<form class="form" id="login-form">
 				<label for="username">Username</label>
-				<input
-					type="text"
-					id="username"
-					placeholder="Enter Username"
-					required
-				/>
+				<div class="input-group">
+					<input
+						type="text"
+						id="username"
+						placeholder="Enter Username"
+						required
+					/>
+					<i class="fa-solid fa-signature"></i>
+				</div>
 				<label for="password">Password</label>
-				<input
-					type="password"
-					id="password"
-					placeholder="Enter Password"
-					required
-				/>
+				<div class="input-group">
+					<input
+						type="password"
+						id="password"
+						placeholder="Enter Password"
+						required
+					/>
+					<i class="fa-solid fa-key"></i>
+				</div>
 				<input type="submit" value="Login" class="inner-btn" />
 			</form>
 			<hr />
@@ -49,26 +59,37 @@
 			<h1>Register</h1>
 			<form class="form" id="register-form">
 				<label for="registerUsername">Username</label>
-				<input
-					type="text"
-					id="registerUsername"
-					placeholder="Enter Username"
-					required
-				/>
+				<div class="input-group">
+					<input
+						type="text"
+						id="registerUsername"
+						placeholder="Enter Username"
+						required
+					/>
+					<i class="fa-solid fa-signature"></i>
+				</div>
 				<label for="registerPassword">Password</label>
-				<input
-					type="password"
-					id="registerPassword"
-					placeholder="Enter Password"
-					required
-				/>
+				<div class="input-group">
+					<input
+						type="password"
+						id="registerPassword"
+						placeholder="Enter Password"
+						required
+					/>
+					<i class="fa-solid fa-key"></i>
+				</div>
+
 				<label for="confirmPassword">Confirm Password</label>
-				<input
-					type="password"
-					id="confirmPassword"
-					placeholder="Enter Password Again"
-					required
-				/>
+				<div class="input-group">
+					<input
+						type="password"
+						id="confirmPassword"
+						placeholder="Enter Password Again"
+						required
+					/>
+					<i class="fa-solid fa-key"></i>
+				</div>
+
 				<input type="submit" value="Register" class="inner-btn" />
 			</form>
 			<hr />
@@ -87,6 +108,44 @@
 					<input type="button" value="Publish" class="form-btn" />
 				</div>
 			</form>
+		</div>
+		<div id="all-tales-container">
+			<h1>Tales</h1>
+			<div id="tales-content">
+				<h3 id="tale-title">Scary Tale</h3>
+				<p id="tale-name">Grim Reaper</p>
+				<p id="tale-body">To be continued...</p>
+			</div>
+			<div id="tales-content">
+				<h3 id="tale-title">Scary Tale</h3>
+				<p id="tale-name">Grim Reaper</p>
+				<p id="tale-body">To be continued...</p>
+			</div>
+			<div id="tales-content">
+				<h3 id="tale-title">Scary Tale</h3>
+				<p id="tale-name">Grim Reaper</p>
+				<p id="tale-body">To be continued...</p>
+			</div>
+			<div id="tales-content">
+				<h3 id="tale-title">Scary Tale</h3>
+				<p id="tale-name">Grim Reaper</p>
+				<p id="tale-body">To be continued...</p>
+			</div>
+			<div id="tales-content">
+				<h3 id="tale-title">Scary Tale</h3>
+				<p id="tale-name">Grim Reaper</p>
+				<p id="tale-body">To be continued...</p>
+			</div>
+			<div id="tales-content">
+				<h3 id="tale-title">Scary Tale</h3>
+				<p id="tale-name">Grim Reaper</p>
+				<p id="tale-body">To be continued...</p>
+			</div>
+			<div id="tales-content">
+				<h3 id="tale-title">Scary Tale</h3>
+				<p id="tale-name">Grim Reaper</p>
+				<p id="tale-body">To be continued...</p>
+			</div>
 		</div>
 	</body>
 </html>
