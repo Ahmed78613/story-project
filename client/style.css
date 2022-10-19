@@ -38,7 +38,6 @@ label {
 }
 
 /* Forms */
-
 h1 {
 	margin-bottom: 1rem;
 	font-size: 2.5rem;
@@ -63,8 +62,13 @@ h1 {
 	justify-content: center;
 	padding: 3rem;
 	border-radius: 6px;
-	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.445);
+	box-shadow: 10px 15px 20px rgba(0, 0, 0, 0.3);
 	background-color: white;
+	transition: 0.3s ease-in-out;
+}
+
+.form:hover {
+	box-shadow: 10px 15px 20px rgba(0, 0, 0, 0.6);
 }
 
 #username,
@@ -106,6 +110,11 @@ hr {
 	margin: 2rem auto 0;
 	border: 1px solid white;
 	border-radius: 20px;
+}
+
+::placeholder {
+	opacity: 0.5;
+	font-family: monospace;
 }
 
 /* New Stored Stories */
