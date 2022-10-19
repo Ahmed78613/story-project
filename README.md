@@ -1,4 +1,21 @@
-# Assignment 1
+# LAP 2 Code-Challenge
+
+## Brief
+
+Create a web app to allow for (optionally) anonymous thought posting.
+
+Base the design aesthetic on a platform such as [Telegraph](https://telegra.ph/).
+
+### Requirements
+- The app should have a browser client allowing users to write a post with a title, a pseudonym and a body
+- No login should be required to create a post or visit a post
+- When a user hits 'publish', the post should be stored in a database and the client redirected to a show path
+- The user should be able to access their post using that show path even after a server restart
+- Edit and delete functionality is not required
+
+
+---
+
 
 ## Installation & Usage
 
@@ -37,3 +54,9 @@
 ### Challenges
 
 * Realised using return would not log all numbers up to the argument number.
+
+---
+
+### Links
+
+* Challenge Brief - https://gist.github.com/getfutureproof-admin/8ea762f0fbe7e98ac3c67b78ccbd1330
