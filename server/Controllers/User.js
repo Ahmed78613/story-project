@@ -34,11 +34,10 @@ const userLogin = async (req, res) => {
 	}
 	try {
 		// Check Password
-		console.log(await bcrypt.compare(req.body.password, user[0].password));
 		if (await bcrypt.compare(req.body.password, user[0].password)) {
-			res.send("Success! Your now logged in.");
+			res.status(200).send("Success! Your now logged in.");
 		} else {
-			res.send("Not Allowed! Password does not match.");
+			res.status(401).send("Not Allowed! Password does not match.");
 		}
 	} catch (error) {
 		res.status(404).json({ msg: error.message });
