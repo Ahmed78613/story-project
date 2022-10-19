@@ -82,4 +82,54 @@ label {
 	align-items: center;
 }
 
+/* Write a Tale [AnonyMouse] */
+
+.tale-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	background-image: linear-gradient(to bottom, #88d3ce 0%, #6e45e2 100%);
+	height: 100vh;
+}
+
+#tale-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 2rem;
+	border-radius: 6px;
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.445);
+	background-color: white;
+}
+
+#taleTitle, #anonyMouse, #tailTale {
+	width: 500px;
+	margin-bottom: 1rem;
+	padding: 0.5rem;
+	border: none;
+	border-radius: 6px;
+	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.288);
+	/* resize: both; */
+}
+
+.form-btn {
+	width: 40%;
+	margin: 0.5rem;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.288);
+	transition: 0.3s ease-in-out;
+}
+
+.form-btn:hover {
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.publish-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
 /* New Stored Stories */
