@@ -15,17 +15,38 @@
 		<title>Your Story</title>
 	</head>
 	<body>
-		<div class="login-container">
-			<form id="login-form">
+		<!-- Login Form -->
+		<div class="form-container" id="login-container">
+			<h1>Login</h1>
+			<form class="form" id="login-form">
 				<label for="username">Username</label>
 				<input type="text" id="username" />
 				<label for="password">Password</label>
 				<input type="password" id="password" />
-				<div class="login-buttons">
-					<input type="button" value="Login" class="form-btn" />
-					<input type="button" value="Register" class="form-btn" />
-				</div>
+				<input type="submit" value="Login" class="inner-btn" />
 			</form>
+			<hr />
+			<input
+				type="button"
+				value="Register"
+				class="outer-btn"
+				id="register-btn"
+			/>
+		</div>
+		<!-- register Form -->
+		<div class="form-container" id="register-container">
+			<h1>Register</h1>
+			<form class="form" id="register-form">
+				<label for="registerUsername">Username</label>
+				<input type="text" id="registerUsername" />
+				<label for="registerPassword">Password</label>
+				<input type="password" id="registerPassword" />
+				<label for="confirmPassword">Confirm Password</label>
+				<input type="password" id="confirmPassword" />
+				<input type="submit" value="Register" class="inner-btn" />
+			</form>
+			<hr />
+			<input type="button" value="Login" class="outer-btn" id="login-btn" />
 		</div>
 	</body>
 </html>

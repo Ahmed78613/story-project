@@ -21,6 +21,7 @@ p {
 button,
 a,
 input[type="button"],
+input[type="submit"],
 label {
 	font-family: "Fuzzy Bubbles", cursive;
 	font-weight: 400;
@@ -29,15 +30,24 @@ label {
 	font-size: 1rem;
 	padding: 0.25rem 0;
 	border-radius: 4px;
+	font-size: 1.1rem;
+}
+/* Containers */
+#register-container {
+	display: none;
 }
 
-/* Shared Containers */
+/* Forms */
 
-/* Login Form */
+h1 {
+	margin-bottom: 1rem;
+	font-size: 2.5rem;
+}
 
-.login-container {
+.form-container {
 	width: 100%;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	margin: 0 auto;
@@ -45,19 +55,24 @@ label {
 	height: 100vh;
 }
 
-#login-form {
+.form {
+	width: 90%;
+	max-width: 500px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 2rem;
+	padding: 3rem;
 	border-radius: 6px;
 	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.445);
 	background-color: white;
 }
 
 #username,
-#password {
-	width: 500px;
+#password,
+#registerUsername,
+#registerPassword,
+#confirmPassword {
+	width: 100%;
 	margin-bottom: 1rem;
 	padding: 0.5rem;
 	border: none;
@@ -65,21 +80,32 @@ label {
 	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.288);
 }
 
-.form-btn {
-	width: 40%;
-	margin: 0.5rem;
+.inner-btn,
+.outer-btn {
+	margin: 1rem auto;
+	width: 50%;
 	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.288);
 	transition: 0.3s ease-in-out;
 }
 
-.form-btn:hover {
+.outer-btn {
+	margin: 1rem auto;
+	width: 90%;
+	max-width: 500px;
+}
+.inner-btn:hover,
+.outer-btn:hover {
 	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+	background-color: rgb(207, 207, 207);
+	transform: translateY(4px);
 }
 
-.login-buttons {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+hr {
+	width: 90%;
+	max-width: 500px;
+	margin: 2rem auto 0;
+	border: 1px solid white;
+	border-radius: 20px;
 }
 
 /* New Stored Stories */
