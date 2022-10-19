@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 const storySchema = mongoose.Schema({
-	title: { type: String || Number, required: true },
-	pseudonym: { type: String || Number, required: true },
-	body: { type: String || Number, required: true },
+	title: { type: String, required: true },
+	pseudonym: { type: String, required: true },
+	body: { type: String, required: true },
 });
 
 const storyModel = mongoose.model("story", storySchema);
