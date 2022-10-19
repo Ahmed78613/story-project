@@ -139,7 +139,9 @@ hr {
 	background-color: white;
 }
 
-#taleTitle, #anonyMouse, #tailTale {
+#taleTitle,
+#anonyMouse,
+#tailTale {
 	width: 500px;
 	margin-bottom: 1rem;
 	padding: 0.5rem;
@@ -165,6 +167,5 @@ hr {
 	justify-content: center;
 	align-items: center;
 }
-
 
 /* New Stored Stories */
