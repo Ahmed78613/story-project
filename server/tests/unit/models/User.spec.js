@@ -19,14 +19,14 @@ describe ("User", () => {
     })
 
     describe('index', () => {
-        test('it returns stories with a 200 status code', async () => {
-            let testUsers = [{name: "User1", password: "Password1"}, {name: "User2", password: "Password2"}]
-            jest.spyOn(User)
-                 .mockResolvedValue(testUsers);
-            await userController.index(null, mockRes);
-            expect(mockStatus).toHaveBeenCalledWith(200);
-            expect(mockJson).toHaveBeenCalledWith(testUsers);
-        })
+        // test('it returns stories with a 200 status code', async () => {
+        //     let testUsers = [{name: "User1", password: "Password1"}, {name: "User2", password: "Password2"}]
+        //     jest.spyOn(User)
+        //          .mockResolvedValue(testUsers);
+        //     await userController.index(null, mockRes);
+        //     expect(mockStatus).toHaveBeenCalledWith(200);
+        //     expect(mockJson).toHaveBeenCalledWith(testUsers);
+        // })
 
         test("Does", async () => {
             let testYes = "Yes"
