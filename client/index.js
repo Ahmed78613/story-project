@@ -35,6 +35,8 @@ async function handleLogin(e) {
 	// Get Login details & remove whitespace
 	const username = e.target.username.value.trim();
 	const password = e.target.password.value.trim();
+	// ! IF Already logged in
+	const session = localStorage.getItem("session");
 	// Send Login POST Request
 	try {
 		const res = await fetch("http://localhost:5000/users/login", {
@@ -46,6 +48,8 @@ async function handleLogin(e) {
 			body: JSON.stringify({ username, password }),
 		});
 		const data = await res.json();
+		// ! Save to local Storage
+		localStorage.setItem("session", data.accessToken);
 		/// Check Response Status
 		if (res.status === 400) {
 			return alert("Sorry but this Username does not exist.");
@@ -111,14 +115,39 @@ async function userLoggedIn(username, accessData) {
 				Authorization: `Bearer ${accessData}`,
 			},
 		});
-		const data = await res.json();
+		const storyData = await res.json();
+		applyStoriesToDom(storyData.result);
 	} catch (error) {
 		console.log(error);
 	}
 }
 
+function applyStoriesToDom(storyData) {
+	storyData.forEach((story) => {
+		// Div
+		const taleDiv = document.createElement("div");
+		taleDiv.id = "tales-content";
+		// Title
+		const taleTitle = document.createElement("h3");
+		taleTitle.textContent = story.title;
+		// Name
+		const taleName = document.createElement("p");
+		taleName.textContent = story.pseudonym;
+		// Body
+		const taleBody = document.createElement("p");
+		taleBody.textContent = story.body;
+		// Append to div
+		taleDiv.appendChild(taleTitle);
+		taleDiv.appendChild(taleName);
+		taleDiv.appendChild(taleBody);
+		// Append to DOM
+		allTalesContainer.appendChild(taleDiv);
+	});
+}
+
 function userAlreadyLoggedIn() {
 	const loggedIn = localStorage.getItem("username");
+
 	if (loggedIn) {
 		userLoggedIn(loggedIn);
 	}
