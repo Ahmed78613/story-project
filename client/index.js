@@ -147,9 +147,10 @@ function applyStoriesToDom(storyData) {
 
 function userAlreadyLoggedIn() {
 	const loggedIn = localStorage.getItem("username");
+	const session = localStorage.getItem("session");
 
 	if (loggedIn) {
-		userLoggedIn(loggedIn);
+		userLoggedIn(loggedIn, session);
 	}
 }
 
