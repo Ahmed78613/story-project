@@ -20,13 +20,15 @@ Base the design aesthetic on a platform such as [Telegraph](https://telegra.ph/)
 ### Installation
 
 * Clone or download the repo.
-* Open terminal and navigate to `server` folder.
+* Open terminal and navigate to `/server` folder.
 * Run `npm install` to install dependencies.
 
 ### Usage
 
-* Run `npm start` to launch server.
-* Run `npm test` to launch test suite.
+* **Make sure you are in `/server` before running `npm` commands**
+* Run `npm run start` to launch server.
+* Run `npm run dev` to launch development server.
+* Run `npm run test` to launch test suite.
 * View changes on local port `http://127.0.0.1:5500/client/index.html`
 
 ## Wins & Challenges
