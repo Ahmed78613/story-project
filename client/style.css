@@ -1,5 +1,4 @@
 /* General */
-
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -38,9 +37,23 @@ label {
 	border-radius: 4px;
 	font-size: 1.1rem;
 }
+
 /* Containers */
 #register-container {
 	display: none;
+}
+
+/* Logo */
+
+#logo {
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	transform: translate(-50%);
+	font-size: 26px;
+	font-weight: 700;
+	font-family: "Pacifico", cursive;
+	color: #7c93d7;
 }
 
 /* Forms */
@@ -143,22 +156,9 @@ hr {
 	display: none;
 	justify-content: center;
 	align-items: center;
-	margin: 0 auto;
+	margin: 1rem auto 0;
 	height: 45vh;
 }
-
-/* #tale-form {
-	width: 90%;
-	max-width: 500px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	padding: 1.5rem;
-	border-radius: 6px;
-	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.445);
-	background-color: white;
-	transition: 0.3s ease-in-out;
-} */
 
 #tale-form:hover {
 	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
