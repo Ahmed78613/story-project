@@ -13,6 +13,9 @@ const loginContainer = document.getElementById("login-container");
 const registerContainer = document.getElementById("register-container");
 const taleContainer = document.querySelector(".tale-container");
 const allTalesContainer = document.getElementById("all-tales-container");
+// Headings
+const headings = document.querySelectorAll(".heading");
+
 // Event Listeners
 // forms
 loginForm.addEventListener("submit", handleLogin);
@@ -202,6 +205,8 @@ function darkMode() {
 		darkModeBtn.classList.add("dark");
 		// containers
 		allTalesContainer.classList.add("dark");
+		// headings
+		headings.forEach((e) => (e.style.color = "white"));
 	} else {
 		// Set To Light Mode
 		darkModeIcon.className = "fa-solid fa-moon";
@@ -219,6 +224,8 @@ function darkMode() {
 		darkModeBtn.classList.remove("dark");
 		// containers
 		allTalesContainer.classList.remove("dark");
+		// headings
+		headings.forEach((e) => (e.style.color = "black"));
 	}
 }
 
