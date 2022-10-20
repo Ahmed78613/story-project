@@ -38,14 +38,15 @@ Base the design aesthetic on a platform such as [Telegraph](https://telegra.ph/)
 
 ### Wins
 
-- - Learnt how to use Login Authentication packages
-- - First time using MongoDb
-- - Dark Mode & Logout Functionality
+- Learnt how to use Login Authentication packages.
+- First time using MongoDb.
+- Dark Mode & Logout Functionality.
 
 ### Challenges
 
-- - Setting up Authentication with jwt
-- - Connecting frontend and backend
+- Setting up Authentication with jwt.
+- Connecting frontend and backend.
+- Errors occurring with seeing changes depending on browser.
 
 ### Links
 
