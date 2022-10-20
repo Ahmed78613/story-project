@@ -5,6 +5,7 @@ const registerForm = document.getElementById("register-form");
 // Form buttons
 const loginBtn = document.getElementById("login-btn");
 const registerBtn = document.getElementById("register-btn");
+const logoutBtn = document.getElementById("logout-btn");
 // Containers
 const loginContainer = document.getElementById("login-container");
 const registerContainer = document.getElementById("register-container");
@@ -15,6 +16,7 @@ loginBtn.addEventListener("click", switchForms);
 registerBtn.addEventListener("click", switchToRegister);
 loginForm.addEventListener("submit", handleLogin);
 registerForm.addEventListener("submit", handleRegister);
+logoutBtn.addEventListener("click", logout);
 
 // Switch Forms
 function switchToRegister() {
@@ -110,7 +112,6 @@ async function userLoggedIn(username, accessData) {
 			},
 		});
 		const data = await res.json();
-		console.log(data);
 	} catch (error) {
 		console.log(error);
 	}
@@ -123,8 +124,9 @@ function userAlreadyLoggedIn() {
 	}
 }
 
-function logOut() {
+function logout() {
 	localStorage.clear();
+	location.reload();
 }
 
 userAlreadyLoggedIn();
