@@ -1,9 +1,14 @@
 /* General */
-
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+}
+
+body {
+	background-image: linear-gradient(to top, #88d3ce 0%, #6e45e2 100%);
+	height: 100vh;
+	overflow-x: hidden;
 }
 
 h1,
@@ -21,6 +26,7 @@ p {
 button,
 a,
 input[type="button"],
+input[type="submit"],
 label {
 	font-family: "Fuzzy Bubbles", cursive;
 	font-weight: 400;
@@ -29,40 +35,146 @@ label {
 	font-size: 1rem;
 	padding: 0.25rem 0;
 	border-radius: 4px;
+	font-size: 1.1rem;
 }
 
-/* Shared Containers */
+/* Containers */
+#register-container {
+	display: none;
+}
 
-/* Login Form */
+/* Logo */
 
-.login-container {
+#logo {
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	transform: translate(-50%);
+	font-size: 26px;
+	font-weight: 700;
+	font-family: "Pacifico", cursive;
+	color: #7c93d7;
+}
+
+/* Forms */
+h1 {
+	margin-bottom: 1rem;
+	font-size: 2.5rem;
+}
+
+.form-container {
 	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 0 auto;
-	background-image: linear-gradient(to top, #88d3ce 0%, #6e45e2 100%);
-	height: 100vh;
-}
-
-#login-form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 2rem;
+	align-items: center;
+	margin: 0 auto;
+	height: 100vh;
+}
+
+.form {
+	width: 90%;
+	max-width: 500px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 3rem;
 	border-radius: 6px;
-	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.445);
-	background-color: white;
+	box-shadow: 10px 15px 20px rgba(0, 0, 0, 0.3);
+	background-color: rgba(255, 255, 255, 0.5);
+	transition: 0.3s ease-in-out;
+}
+
+.form:hover {
+	box-shadow: 10px 15px 20px rgba(0, 0, 0, 0.6);
+}
+
+.input-group {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
 }
 
 #username,
-#password {
-	width: 500px;
+#password,
+#registerUsername,
+#registerPassword,
+#confirmPassword {
+	width: 100%;
+	margin-right: 0.75rem;
+	padding: 0.5rem;
+	border: none;
+	border-radius: 6px;
+	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.288);
+}
+
+input:focus {
+	background-color: #787cdb;
+	color: white;
+	font-weight: 700;
+}
+
+.inner-btn,
+.outer-btn {
+	margin: 1rem auto;
+	width: 50%;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.288);
+	transition: 0.3s ease-in-out;
+}
+
+.outer-btn {
+	margin: 1rem auto;
+	width: 90%;
+	max-width: 500px;
+}
+.inner-btn:hover,
+.outer-btn:hover {
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+	background-color: rgb(207, 207, 207);
+	transform: translateY(4px);
+}
+
+hr {
+	width: 90%;
+	max-width: 500px;
+	margin: 2rem auto 0;
+	border: 1px solid white;
+	border-radius: 20px;
+}
+
+::placeholder {
+	opacity: 0.5;
+	font-family: monospace;
+	color: rgb(36, 36, 36);
+}
+
+/* Write a Tale [AnonyMouse] */
+
+.tale-container {
+	width: 100%;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	margin: 1rem auto 0;
+	height: 45vh;
+}
+
+#tale-form:hover {
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+	transform: translateY(-10px);
+}
+
+#taleTitle,
+#anonyMouse,
+#tailTale {
+	width: 100%;
 	margin-bottom: 1rem;
 	padding: 0.5rem;
 	border: none;
 	border-radius: 6px;
 	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.288);
+	/* resize: both; */
 }
 
 .form-btn {
@@ -76,10 +188,105 @@ label {
 	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
-.login-buttons {
+.publish-button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-/* New Stored Stories */
+/* All Tales Section*/
+
+#all-tales-container {
+	position: relative;
+	width: 90%;
+	max-width: 1000px;
+	margin: 0 auto;
+	display: none;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin: 0 auto;
+	padding: 1.5rem 1rem;
+	border-radius: 6px;
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.445);
+	background-color: rgba(255, 255, 255, 0.5);
+	max-height: 50vh;
+	overflow-y: scroll;
+	transition: 0.3s ease-in-out;
+}
+
+#all-tales-container:hover {
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+	transform: scale(1.01);
+}
+
+#tales-content {
+	margin: 0.5rem 0;
+	border-bottom: 1px solid #7e9ed4;
+	width: 100%;
+}
+
+#tales-content p,
+#tales-content h3 {
+	margin-bottom: 0.5rem;
+}
+
+::-webkit-scrollbar {
+	width: 12px;
+	height: 10px;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 6px;
+	background-image: linear-gradient(to top, #88d3cea8 0%, #6f45e285 100%);
+}
+
+/* Log out */
+
+#logout-btn {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	font-size: 30px;
+	transition: 0.3s ease-in-out;
+	cursor: pointer;
+	display: none;
+	background-color: transparent !important;
+}
+
+#logout-btn:hover {
+	transform: translateX(10px);
+	color: white;
+}
+
+/* Dark Mode */
+
+#darkmode-btn {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	font-size: 30px;
+	transition: 0.3s ease-in-out;
+	cursor: pointer;
+	background-color: transparent !important;
+}
+
+#darkmode-btn:hover {
+	transform: translateX(-5px);
+	color: white;
+}
+
+.dark {
+	background-color: rgba(0, 0, 0, 0.418) !important;
+	color: white !important;
+}
+
+/* Cat Img */
+
+#mouse-img {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 400px;
+	overflow: hidden;
+	z-index: -1;
+}

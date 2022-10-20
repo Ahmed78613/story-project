@@ -4,28 +4,131 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Pacifico&display=swap"
 			rel="stylesheet"
 		/>
+		<script
+			src="https://kit.fontawesome.com/b7207ee847.js"
+			crossorigin="anonymous"
+		></script>
 		<link rel="stylesheet" href="./style.css" />
 		<script defer src="./index.js"></script>
-		<title>Your Stories</title>
+		<title>Mouse Tails</title>
 	</head>
 	<body>
-		<div class="login-container">
-			<form id="login-form">
+		<!-- Logo -->
+		<p id="logo">Mouse Tails</p>
+		<!-- Login Form -->
+		<div class="form-container" id="login-container">
+			<h1 class="heading">Login</h1>
+			<form class="form" id="login-form">
 				<label for="username">Username</label>
-				<input type="text" id="username" />
+				<div class="input-group">
+					<input
+						type="text"
+						id="username"
+						placeholder="Enter Username"
+						required
+					/>
+					<i class="fa-solid fa-signature"></i>
+				</div>
 				<label for="password">Password</label>
-				<input type="password" id="password" />
-				<div class="login-buttons">
-					<input type="button" value="Login" class="form-btn" />
-					<input type="button" value="Register" class="form-btn" />
+				<div class="input-group">
+					<input
+						type="password"
+						id="password"
+						placeholder="Enter Password"
+						required
+					/>
+					<i class="fa-solid fa-key"></i>
+				</div>
+				<input type="submit" value="Login" class="inner-btn" />
+			</form>
+			<hr />
+			<input
+				type="button"
+				value="Register"
+				class="outer-btn"
+				id="register-btn"
+			/>
+		</div>
+		<!-- Register Form -->
+		<div class="form-container" id="register-container">
+			<h1 class="heading">Register</h1>
+			<form class="form" id="register-form">
+				<label for="registerUsername">Username</label>
+				<div class="input-group">
+					<input
+						type="text"
+						id="registerUsername"
+						placeholder="Enter Username"
+						required
+					/>
+					<i class="fa-solid fa-signature"></i>
+				</div>
+				<label for="registerPassword">Password</label>
+				<div class="input-group">
+					<input
+						type="password"
+						id="registerPassword"
+						placeholder="Enter Password"
+						required
+					/>
+					<i class="fa-solid fa-key"></i>
+				</div>
+
+				<label for="confirmPassword">Confirm Password</label>
+				<div class="input-group">
+					<input
+						type="password"
+						id="confirmPassword"
+						placeholder="Enter Password Again"
+						required
+					/>
+					<i class="fa-solid fa-key"></i>
+				</div>
+
+				<input type="submit" value="Register" class="inner-btn" />
+			</form>
+			<hr />
+			<input type="button" value="Login" class="outer-btn" id="login-btn" />
+		</div>
+
+		<div class="tale-container">
+			<form class="form" id="tale-form">
+				<label for="taleTitle">Tale Title</label>
+				<input type="text" id="taleTitle" />
+				<label for="anonyMouse">Your AnonyMouse Name</label>
+				<input type="text" id="anonyMouse" />
+				<label for="tailTale">Your Tale</label>
+				<input type="text" id="tailTale" />
+				<div class="publish-button">
+					<input type="submit" value="Publish" class="form-btn" />
 				</div>
 			</form>
 		</div>
+		<!-- Hidden Tales Container -->
+		<div id="all-tales-container">
+			<h1>Tales</h1>
+		</div>
+		<!-- Log out -->
+		<div id="logout-btn">
+			<i class="fa-solid fa-right-from-bracket"></i>
+		</div>
+		<!-- Dark Mode -->
+		<div id="darkmode-btn">
+			<!-- <i class="fa-solid fa-sun"></i> -->
+			<i class="fa-solid fa-moon" id="darkModeIcon"></i>
+		</div>
+		<!-- Jerry -->
+		<img
+			src="./images/jerry-illustration.png"
+			alt="Jeryy from Tom and Jerry"
+			id="mouse-img"
+		/>
 	</body>
 </html>
