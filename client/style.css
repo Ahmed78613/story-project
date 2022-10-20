@@ -238,3 +238,23 @@ hr {
 	border-radius: 6px;
 	background-image: linear-gradient(to top, #88d3cea8 0%, #6f45e285 100%);
 }
+
+/* Log out & Dark Mode */
+
+#logout-btn {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	font-size: 30px;
+	transition: 0.3s ease-in-out;
+	cursor: pointer;
+}
+
+#logout-btn::after {
+	position: absolute;
+}
+
+#logout-btn:hover {
+	transform: translateX(10px);
+	color: white;
+}

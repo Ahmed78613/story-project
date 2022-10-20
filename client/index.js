@@ -43,13 +43,15 @@ async function handleLogin(e) {
 			},
 			body: JSON.stringify({ username, password }),
 		});
+		const data = await res.json();
+		console.log(data);
 		/// Check Response Status
 		if (res.status === 400) {
 			return alert("Sorry but this Username does not exist.");
 		} else if (res.status === 401) {
 			return alert("Incorrect password, please try again.");
 		} else {
-			userLoggedIn();
+			userLoggedIn(username);
 		}
 	} catch (error) {
 		console.log(error);
@@ -91,29 +93,35 @@ async function handleRegister(e) {
 	}
 }
 
-function userLoggedIn() {
-	// Remove Containers with Transition
-	loginContainer.style.transition = "1s ease-in-out";
-	loginContainer.style.opacity = 0;
-	setTimeout(() => {
-		loginContainer.style.display = "none";
-		// Show Stories Container
-		taleContainer.style.transition = "1s ease-in-out";
-		taleContainer.style.display = "flex";
-		allTalesContainer.style.display = "flex";
-	}, 1000);
+function userLoggedIn(username) {
+	// Save to local Storage
+	localStorage.setItem("username", username);
+	// Remove Containers
+	loginContainer.style.display = "none";
+	// Show Stories Container
+	taleContainer.style.transition = "1s ease-in-out";
+	taleContainer.style.display = "flex";
+	allTalesContainer.style.display = "flex";
 }
+
+function userAlreadyLoggedIn() {
+	const loggedIn = localStorage.getItem("username");
+	if (loggedIn) {
+		userLoggedIn(loggedIn);
+	}
+}
+
+userAlreadyLoggedIn();
 
 // Tale Publish && Post
 // Forms
-const taleForm = document.getElementById("tale-form");
+// const taleForm = document.getElementById("tale-form");
 // Form buttons
-const publishBtn = document.getElementById("publish-btn");
+// const publishBtn = document.getElementById("publish-btn");
 // Containers
-const taleContainer = document.getElementById("tale-container");
+// const taleContainer = document.getElementById("tale-container");
 // Listeners
-loginForm.addEventListener("submit", handlePublish);
-
+// loginForm.addEventListener("submit", handlePublish);
 
 // title: { type: String, required: true },
 // pseudonym: { type: String, required: true },
@@ -121,26 +129,26 @@ loginForm.addEventListener("submit", handlePublish);
 
 // Mongo
 // From https://www.freecodecamp.org/news/build-a-restful-api-using-node-express-and-mongodb/
-require('dotenv').config();
+// require("dotenv").config();
 
-const express = require('express');
-const mongoose = require('mongoose');
-const mongoString = process.env.MONGO_DB;
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const mongoString = process.env.MONGO_DB;
 
-mongoose.connect(mongoString);
-const database = mongoose.connection;
+// mongoose.connect(mongoString);
+// const database = mongoose.connection;
 
-database.on('error', (error) => {
-    console.log(error)
-})
+// database.on("error", (error) => {
+// 	console.log(error);
+// });
 
-database.once('connected', () => {
-    console.log('Database Connected');
-})
-const app = express();
+// database.once("connected", () => {
+// 	console.log("Database Connected");
+// });
+// const app = express();
 
-app.use(express.json());
+// app.use(express.json());
 
-app.listen(3000, () => {
-    console.log(`Server Started at ${3000}`)
-})
+// app.listen(3000, () => {
+// 	console.log(`Server Started at ${3000}`);
+// });
