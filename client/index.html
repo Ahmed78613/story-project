@@ -97,7 +97,7 @@
 		</div>
 
 		<div class="tale-container">
-			<form id="tale-form">
+			<form class="form" id="tale-form">
 				<label for="taleTitle">Tale Title</label>
 				<input type="text" id="taleTitle" />
 				<label for="anonyMouse">Your AnonyMouse Name</label>
@@ -105,15 +105,28 @@
 				<label for="tailTale">Your Tale</label>
 				<input type="text" id="tailTale" />
 				<div class="publish-button">
-					<input type="button" value="Publish" class="form-btn" />
+					<input type="submit" value="Publish" class="form-btn" />
 				</div>
 			</form>
 		</div>
+		<!-- Hidden Tales Container -->
 		<div id="all-tales-container">
 			<h1>Tales</h1>
 		</div>
+		<!-- Log out -->
 		<div id="logout-btn">
 			<i class="fa-solid fa-right-from-bracket"></i>
 		</div>
+		<!-- Dark Mode -->
+		<div id="darkmode-btn">
+			<!-- <i class="fa-solid fa-sun"></i> -->
+			<i class="fa-solid fa-moon" id="darkModeIcon"></i>
+		</div>
+		<!-- Jerry -->
+		<img
+			src="./images/jerry-illustration.png"
+			alt="Jeryy from Tom and Jerry"
+			id="mouse-img"
+		/>
 	</body>
 </html>

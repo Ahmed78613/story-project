@@ -2,21 +2,27 @@
 // Forms
 const loginForm = document.getElementById("login-form");
 const registerForm = document.getElementById("register-form");
+const newTaleForm = document.getElementById("tale-form");
 // Form buttons
 const loginBtn = document.getElementById("login-btn");
 const registerBtn = document.getElementById("register-btn");
 const logoutBtn = document.getElementById("logout-btn");
+const darkModeBtn = document.getElementById("darkmode-btn");
 // Containers
 const loginContainer = document.getElementById("login-container");
 const registerContainer = document.getElementById("register-container");
 const taleContainer = document.querySelector(".tale-container");
 const allTalesContainer = document.getElementById("all-tales-container");
 // Event Listeners
-loginBtn.addEventListener("click", switchForms);
-registerBtn.addEventListener("click", switchToRegister);
+// forms
 loginForm.addEventListener("submit", handleLogin);
 registerForm.addEventListener("submit", handleRegister);
+newTaleForm.addEventListener("submit", addNewTale);
+// buttons
+loginBtn.addEventListener("click", switchForms);
+registerBtn.addEventListener("click", switchToRegister);
 logoutBtn.addEventListener("click", logout);
+darkModeBtn.addEventListener("click", darkMode);
 
 // Switch Forms
 function switchToRegister() {
@@ -107,6 +113,8 @@ async function userLoggedIn(username, accessData) {
 	taleContainer.style.transition = "1s ease-in-out";
 	taleContainer.style.display = "flex";
 	allTalesContainer.style.display = "flex";
+	// Show Log out Button
+	logoutBtn.style.display = "block";
 	// Fetch Their Stories
 	try {
 		const res = await fetch("http://localhost:5000/story", {
@@ -143,6 +151,75 @@ function applyStoriesToDom(storyData) {
 		// Append to DOM
 		allTalesContainer.appendChild(taleDiv);
 	});
+}
+
+async function addNewTale(e) {
+	e.preventDefault();
+	// Store Data
+	const title = e.target.taleTitle.value;
+	const pseudonym = e.target.anonyMouse.value;
+	const body = e.target.tailTale.value;
+	// Put data into a object
+	const sendData = {
+		username: localStorage.getItem("username"),
+		title,
+		pseudonym,
+		body,
+	};
+	// Send POST request
+	try {
+		fetch("http://localhost:5000/story", {
+			method: "POST",
+			headers: {
+				Authorization: `Bearer ${localStorage.getItem("session")}`,
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(sendData),
+		});
+		location.reload();
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+function darkMode() {
+	const darkModeIcon = document.getElementById("darkModeIcon");
+	if (darkModeIcon.className === "fa-solid fa-moon") {
+		// Set To Dark Mode
+		darkModeIcon.className = "fa-solid fa-sun";
+		document.body.style.backgroundImage =
+			"linear-gradient(to top, #3a9c96 0%, #1d0761 100%)";
+		// forms
+		loginForm.classList.add("dark");
+		registerForm.classList.add("dark");
+		newTaleForm.classList.add("dark");
+
+		// buttons
+		loginBtn.classList.add("dark");
+		registerBtn.classList.add("dark");
+		logoutBtn.classList.add("dark");
+		darkModeBtn.classList.add("dark");
+		// containers
+		allTalesContainer.classList.add("dark");
+	} else {
+		// Set To Light Mode
+		darkModeIcon.className = "fa-solid fa-moon";
+		document.body.style.backgroundImage =
+			"linear-gradient(to top, #88d3ce 0%, #6e45e2 100%)";
+		// forms
+		loginForm.classList.remove("dark");
+		registerForm.classList.remove("dark");
+		newTaleForm.classList.remove("dark");
+
+		// buttons
+		loginBtn.classList.remove("dark");
+		registerBtn.classList.remove("dark");
+		logoutBtn.classList.remove("dark");
+		darkModeBtn.classList.remove("dark");
+		// containers
+		allTalesContainer.classList.remove("dark");
+	}
 }
 
 function userAlreadyLoggedIn() {
