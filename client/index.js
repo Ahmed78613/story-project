@@ -44,14 +44,13 @@ async function handleLogin(e) {
 			body: JSON.stringify({ username, password }),
 		});
 		const data = await res.json();
-		console.log(data);
 		/// Check Response Status
 		if (res.status === 400) {
 			return alert("Sorry but this Username does not exist.");
 		} else if (res.status === 401) {
 			return alert("Incorrect password, please try again.");
 		} else {
-			userLoggedIn(username);
+			userLoggedIn(username, data.accessToken);
 		}
 	} catch (error) {
 		console.log(error);
@@ -93,7 +92,7 @@ async function handleRegister(e) {
 	}
 }
 
-function userLoggedIn(username) {
+async function userLoggedIn(username, accessData) {
 	// Save to local Storage
 	localStorage.setItem("username", username);
 	// Remove Containers
@@ -102,6 +101,19 @@ function userLoggedIn(username) {
 	taleContainer.style.transition = "1s ease-in-out";
 	taleContainer.style.display = "flex";
 	allTalesContainer.style.display = "flex";
+	// Fetch Their Stories
+	try {
+		const res = await fetch("http://localhost:5000/story", {
+			method: "GET",
+			headers: {
+				Authorization: `Bearer ${accessData}`,
+			},
+		});
+		const data = await res.json();
+		console.log(data);
+	} catch (error) {
+		console.log(error);
+	}
 }
 
 function userAlreadyLoggedIn() {
@@ -109,6 +121,10 @@ function userAlreadyLoggedIn() {
 	if (loggedIn) {
 		userLoggedIn(loggedIn);
 	}
+}
+
+function logOut() {
+	localStorage.clear();
 }
 
 userAlreadyLoggedIn();
