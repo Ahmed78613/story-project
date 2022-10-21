@@ -1,6 +1,6 @@
 # LAP 2 Code-Challenge
 
-![MouseTails Logo](.client/images/MouseTails.png "MouseTails Logo")
+![MouseTails Logo](client/images/MouseTails.png "MouseTails Logo")
 
 # AnonyMouse Tail Tales
 
