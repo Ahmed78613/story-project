@@ -46,9 +46,10 @@ Base the design aesthetic on a platform such as [Telegraph](https://telegra.ph/)
 
 - Setting up Authentication with jwt.
 - Connecting frontend and backend.
-- Errors occurring with seeing changes depending on browser.
+- Errors occurring with seeing changes depending on browser. Firefox slices the token into an array, Safari doesn't refresh the list of tales after publishing, and Chrome works as intended.
 
 ### Links
 
 - Challenge Brief - https://gist.github.com/getfutureproof-admin/8ea762f0fbe7e98ac3c67b78ccbd1330
+- MongoDB tutorial - https://www.knowledgehut.com/blog/web-development/deployment-in-mongodb-step-by-step-tutorial
 - Learning Telegraph - https://telegra.ph/How-Does-Telegraph-Work-10-19, https://telegra.ph/How-Does-Telegraph-Work-10-19-2
