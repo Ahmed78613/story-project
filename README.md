@@ -1,5 +1,7 @@
 # LAP 2 Code-Challenge
 
+![MouseTails Logo](.client/images/MoustTails.png "MouseTails Logo")
+
 # AnonyMouse Tail Tales
 
 ## Brief
@@ -31,7 +33,7 @@ Base the design aesthetic on a platform such as [Telegraph](https://telegra.ph/)
 - Run `npm run dev` to launch development server.
 - Run `npm run test` to launch test suite.
 - View changes on local port `http://127.0.0.1:5500/client/index.html`
-- Create a account and then login
+- Create an account and then login
 - Create and Store your stories
 
 ## Wins & Challenges
@@ -47,6 +49,7 @@ Base the design aesthetic on a platform such as [Telegraph](https://telegra.ph/)
 - Setting up Authentication with jwt.
 - Connecting frontend and backend.
 - Errors occurring with seeing changes depending on browser. Firefox slices the token into an array, Safari doesn't refresh the list of tales after publishing, and Chrome works as intended.
+- Testing: Ran into issues potentially due to using an external server, unable to correctly write tests or format mocks
 
 ### Links
 
