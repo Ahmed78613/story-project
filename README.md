@@ -46,7 +46,7 @@ Base the design aesthetic on a platform such as [Telegraph](https://telegra.ph/)
 
 - Setting up Authentication with jwt.
 - Connecting frontend and backend.
-- Errors occurring with seeing changes depending on browser.
+- Errors occurring with seeing changes depending on browser. Firefox slices the token into an array, Safari doesn't refresh the list of tales after publishing, and Chrome works as intended.
 
 ### Links
 
